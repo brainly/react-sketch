@@ -15,6 +15,7 @@ import Tool from './tools';
 import RectangleLabel from './rectangle-label';
 import DefaultTool from './defaul-tool';
 import Triangle from './triangle';
+import TextTool from './text';
 
 const fabric = require('fabric').fabric;
 
@@ -122,6 +123,7 @@ class SketchField extends PureComponent {
     this._tools[Tool.Pan] = new Pan(fabricCanvas);
     this._tools[Tool.DefaultTool] = new DefaultTool(fabricCanvas);
     this._tools[Tool.Triangle] = new Triangle(fabricCanvas);
+    this._tools[Tool.Text] = new TextTool(fabricCanvas);
   };
 
   /**
@@ -694,11 +696,18 @@ class SketchField extends PureComponent {
       this._resize()
     }
 
-    if (this.props.tool !== prevProps.tool) {
+    // this is ugly and should be handled better ;(
+    const shouldReconfigureCanvas = 
+      this.props.tool !== prevProps.tool ||
+      this.props.lineColor !== prevProps.lineColor ||
+      this.props.fillColor !== prevProps.fillColor ||
+      this.props.lineWidth !== prevProps.lineWidth;
+
+    if (shouldReconfigureCanvas) {
       this._selectedTool = this._tools[this.props.tool];
       //Bring the cursor back to default if it is changed by a tool
       this._fc.defaultCursor = 'default';
-      if(this._selectedTool){
+      if(this._selectedTool) {
         this._selectedTool.configureCanvas(this.props);
       }
     }

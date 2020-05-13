@@ -8,5 +8,6 @@ export default {
   Select: 'select',
   Pan: 'pan',
   DefaultTool: 'default-tool',
-  Triangle: 'triangle'
+  Triangle: 'triangle',
+  Text: 'text'
 }
