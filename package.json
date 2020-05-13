@@ -1,6 +1,6 @@
 {
   "name": "react-sketch",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "license": "MIT",
   "main": "./dist",
   "types": "./types/index.d.ts",
