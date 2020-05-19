@@ -133,11 +133,11 @@ class SketchField extends PureComponent {
     const canvas = this._fc;
 
     for (let x = size; x < canvas.width; x += size) {
-      canvas.add(new fabric.Line([x, 0, x, canvas.height], {stroke: color, strokeWidth: 1, selectable: false}));
+      canvas.add(new fabric.Line([x, 0, x, canvas.height], {stroke: color, strokeWidth: 1, selectable: false, background: true}));
     }
 
     for (let y = size; y < canvas.height; y += size) {
-      canvas.add(new fabric.Line([0, y, canvas.width, y], {stroke: color, strokeWidth: 1, selectable: false}));
+      canvas.add(new fabric.Line([0, y, canvas.width, y], {stroke: color, strokeWidth: 1, selectable: false, background: true}));
     }
   };
 

@@ -9,7 +9,7 @@ class Select extends FabricCanvasTool {
     canvas.isDrawingMode = false;
     canvas.selection = true;
     canvas.forEachObject((o) => {
-      o.selectable = o.evented = true;
+      o.selectable = o.evented = o.background ? false : true;
     });
   }
 }
