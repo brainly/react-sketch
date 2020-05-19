@@ -78,6 +78,8 @@ class SketchField extends PureComponent {
     onObjectScaling: PropTypes.func,
     // event object rotating
     onObjectRotating: PropTypes.func,
+    //event object selected
+    onObjectSelected: PropTypes.func,
     // Class name to pass to container div of canvas
     className: PropTypes.string,
     // Style options to pass to container div of canvas
@@ -105,6 +107,7 @@ class SketchField extends PureComponent {
     onObjectMoving:()=>null,
     onObjectScaling:()=>null,
     onObjectRotating:()=>null,
+    onObjectSelected: () => null
   };
 
   state = {
@@ -217,6 +220,11 @@ class SketchField extends PureComponent {
   _onObjectRotating = (e) => {
     const {onObjectRotating} = this.props;
     onObjectRotating(e);
+  };
+
+  _onObjectSelected = e => {
+    const {onObjectSelected} = this.props;
+    onObjectSelected(e);
   };
 
   _onObjectModified = (e) => {
@@ -671,6 +679,7 @@ class SketchField extends PureComponent {
     canvas.on('object:moving', e => this.callEvent(e, this._onObjectMoving));
     canvas.on('object:scaling', e => this.callEvent(e, this._onObjectScaling));
     canvas.on('object:rotating', e => this.callEvent(e, this._onObjectRotating));
+    canvas.on('object:selected', e => this.callEvent(e, this._onObjectSelected));
     // IText Events fired on Adding Text
     // canvas.on("text:event:changed", console.log)
     // canvas.on("text:selection:changed", console.log)
