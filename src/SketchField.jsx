@@ -52,6 +52,10 @@ class SketchField extends PureComponent {
     heightCorrection: PropTypes.number,
     // Specify action on change
     onChange: PropTypes.func,
+    // font family
+    fontFamily: PropTypes.string,
+    // font size
+    fontSize: PropTypes.number,
     // Default initial value
     defaultValue: PropTypes.object,
     // Sketch width

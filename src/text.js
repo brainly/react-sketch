@@ -9,6 +9,8 @@ export default class TextTool extends FabricCanvasTool {
     canvas.isDrawingMode = canvas.selection = false;
     canvas.forEachObject((o) => o.selectable = o.evented = false);
     this._color = props.lineColor;
+    this._fontFamily = props.fontFamily;
+    this._fontSize = props.fontSize;
   }
 
   doMouseDown(o) {
@@ -22,7 +24,9 @@ export default class TextTool extends FabricCanvasTool {
     let pointer = canvas.getPointer(o.e);
 
     const text = new fabric.IText('Enter text', {
-      fontSize: 16,
+      fontFamily: this._fontFamily,
+      fontSize: this._fontSize,
+      fill: this._color,
       left: pointer.x,
       top: pointer.y,
     });
