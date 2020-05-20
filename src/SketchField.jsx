@@ -95,6 +95,8 @@ class SketchField extends PureComponent {
     lineWidth: 10,
     fillColor: 'transparent',
     backgroundColor: 'transparent',
+    fontFamily: 'Times New Roman',
+    fontSize: 16,
     opacity: 1.0,
     undoSteps: 25,
     tool: null,
