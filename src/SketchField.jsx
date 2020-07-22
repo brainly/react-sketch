@@ -147,6 +147,18 @@ class SketchField extends PureComponent {
     }
   };
 
+  getFabricCanvas = () => {
+    return this._fc;
+  };
+
+  getCanvasObjectRef = () => {
+    return this._canvas;
+  };
+
+  getHistoryObject = () => {
+    return this._history;
+  };
+
   /**
    * Enable touch Scrolling on Canvas
    */
