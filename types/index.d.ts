@@ -30,6 +30,14 @@ declare module 'react-sketch' {
 		heightCorrection?: number
 		// Specify action on change
 		onChange?: (evt: any) => void,
+		// Specify action on mousedown
+		onMouseDown?: (evt: any) => void;
+		// Specify action on mouseup
+		onMouseUp?: (evt: any) => void;
+		// Specify action on object selected
+		onObjectSelected?: (evt: any) => void;
+		// Specify action on object added
+		onObjectAdded?: (evt: any) => void;
 		// Default initial value
 		defaultValue?: {},
 		// Sketch width
