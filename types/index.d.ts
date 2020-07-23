@@ -184,11 +184,12 @@ declare module 'react-sketch' {
 			stretchedY?: boolean
 			[name: string]: any
 		}): void
-		
+
 		addText(text: string, options?: {}): void
 		getFabricCanvas: () => Canvas;
 		getCanvasObjectRef: () => HTMLCanvasElement;
 		getHistoryObject: () => any;
+		drawGrid({ size, color }: { size: number, color: string })
 	}
 }
 
