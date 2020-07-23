@@ -1,6 +1,7 @@
-declare module 'react-sketch' {
-	import * as React from 'react'
+import { Canvas } from 'fabric/fabric-impl';
+import * as React from 'react';
 
+declare module 'react-sketch' {
 	export class SketchField extends React.PureComponent<{
 		// the color of the line
 		lineColor?: string
@@ -29,6 +30,14 @@ declare module 'react-sketch' {
 		heightCorrection?: number
 		// Specify action on change
 		onChange?: (evt: any) => void,
+		// Specify action on mousedown
+		onMouseDown?: (evt: any) => void;
+		// Specify action on mouseup
+		onMouseUp?: (evt: any) => void;
+		// Specify action on object selected
+		onObjectSelected?: (evt: any) => void;
+		// Specify action on object added
+		onObjectAdded?: (evt: any) => void;
 		// Default initial value
 		defaultValue?: {},
 		// Sketch width
@@ -177,6 +186,10 @@ declare module 'react-sketch' {
 		}): void
 		
 		addText(text: string, options?: {}): void
-		
+		getFabricCanvas: () => Canvas;
+		getCanvasObjectRef: () => HTMLCanvasElement;
+		getHistoryObject: () => any;
 	}
 }
+
+export type { Object } from 'fabric/fabric-impl';
